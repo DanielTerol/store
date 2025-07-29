@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Creates all CRUD routes:
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
 
   # Defines the root path route ("/")
   root "products#index"
